@@ -22,11 +22,15 @@ jobs:
       - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.19.6'
           channel: 'stable'
 
       - name: Get Dependencies
         run: flutter pub get
+
+      - name: Generate Gradle Wrapper
+        run: |
+          cd android
+          gradle wrapper
 
       - name: Build Debug APK
         run: flutter build apk --debug
