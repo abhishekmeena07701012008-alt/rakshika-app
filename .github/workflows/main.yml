@@ -24,10 +24,13 @@ jobs:
         with:
           channel: 'stable'
 
+      - name: Clean Cache
+        run: flutter clean
+
       - name: Get Dependencies
         run: flutter pub get
 
-      - name: Build Unsigned Debug APK
+      - name: Build Debug APK
         run: flutter build apk --debug
 
       - name: Upload APK Artifact
